@@ -13,7 +13,7 @@ func add(this js.Value, i []js.Value) interface{} {
 	int1, _ := strconv.Atoi(value1)
 	int2, _ := strconv.Atoi(value2)
 
-	js.Global().Set("output", int1+int2)
+	js.Global().Get("document").Call("getElementById", i[2].String()).Set("value", int1+int2)
 	fmt.Println(int1 + int2)
 	return (int1 + int2)
 }
@@ -25,7 +25,7 @@ func subtract(this js.Value, i []js.Value) interface{} {
 	int1, _ := strconv.Atoi(value1)
 	int2, _ := strconv.Atoi(value2)
 
-	js.Global().Set("output", int1-int2)
+	js.Global().Get("document").Call("getElementById", i[2].String()).Set("value", int1-int2)
 	fmt.Println(int1 - int2)
 	return (int1 - int2)
 }
